@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "bitnob-test"
+    }
+  },
+  "defaultProject": "bitnob-test",
+  "cli": {
+    "analytics": "26fd99a5-7b28-45b3-b27a-945edd902c6e"
+  }
 }
