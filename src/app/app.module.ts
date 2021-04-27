@@ -7,6 +7,7 @@ import { BotsComponent } from './pages/bots/bots.component';
 import { BotDetailsComponent } from './pages/bot-details/bot-details.component';
 import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
 import { FavouritesComponent } from './components/favourites/favourites.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { FavouritesComponent } from './components/favourites/favourites.componen
     BotDetailsComponent,
     MenuBarComponent,
     FavouritesComponent,
+    HeaderComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
