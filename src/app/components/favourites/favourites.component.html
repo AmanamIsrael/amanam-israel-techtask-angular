@@ -2,16 +2,15 @@
     <div class="my-5">
         <p class="text-primary fs-3">Favourites</p>
         <div class="d-flex flex-wrap favs-container">
-            <div class="card">
+            <div class="card" *ngFor="let contact of allFavourites">
                 <div class="card-header">
-                    <i class="fas fa-star orange"></i>
+                    <i class="fas fa-star orange" (click)="unStar(contact)"></i>
                 </div>
                 <div class="card-body d-flex justify-content-center">
                     <div>
-                        <img src="https://images.pexels.com/photos/1933873/pexels-photo-1933873.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-                            class="img-thumbnail avatar mb-3" alt="user avatar">
-                        <p class="text-center fw-bold">Amanam Israel</p>
-                        <p class="text-secondary text-center">Standard</p>
+                        <img [src]="contact.image" class="img-thumbnail avatar mb-3" alt="user avatar">
+                        <p class="text-center fw-bold">{{contact.name}}</p>
+                        <p class="text-secondary text-center">{{contact.plan}}</p>
                     </div>
                 </div>
             </div>

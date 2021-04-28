@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { contacts } from '../data/contacts';
+import { contacts } from '../../data/contacts';
 
 @Injectable({
   providedIn: 'root',
@@ -16,8 +16,17 @@ export class ContactsService {
     const contactExists = this.allContacts.has(contact);
     if (contactExists) {
       this.favourites.add(contact);
-      console.log(this.favourites);
       this.allContacts.delete(contact);
+    }
+  }
+  getAllFavourites() {
+    return this.favourites;
+  }
+  deleteFavourite(contact: any) {
+    const contactExists = this.favourites.has(contact);
+    if (contactExists) {
+      this.allContacts.add(contact);
+      this.favourites.delete(contact);
     }
   }
 }

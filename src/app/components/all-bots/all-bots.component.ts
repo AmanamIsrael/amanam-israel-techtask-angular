@@ -1,4 +1,4 @@
-import { ContactsService } from './../../services/contacts.service';
+import { ContactsService } from './../../services/contacts/contacts.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
