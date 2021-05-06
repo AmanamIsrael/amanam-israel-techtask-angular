@@ -11,11 +11,13 @@ export class AllBotsComponent implements OnInit {
   allContacts: any;
 
   ngOnInit(): void {
-    this.allContacts = this.contacts.getAllContacts();
+    this.getAllContacts();
     this.allContacts;
-    console.log(this.allContacts);
   }
   star(contact: Object) {
     this.contacts.setFavourite(contact);
+  }
+  getAllContacts() {
+    this.allContacts = this.contacts.getAllContacts();
   }
 }

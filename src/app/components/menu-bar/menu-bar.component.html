@@ -8,13 +8,14 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div>
-                            <input type="search" class="form-control" id="searchInput" placeholder="search here">
+                            <input type="search" #searchBar (change)="searchContacts(searchBar.value)"
+                                class="form-control" id="searchInput" placeholder="search here">
                         </div>
                         </ div>
                         <div class="col-md-6 pe-0">
                             <div class="controls">
-                                <button class="btn btn-primary me-2">Order by name</button>
-                                <button class="btn btn-primary">Order by creation</button>
+                                <button class="btn btn-primary me-2" (click)="orderByName()">Order by name</button>
+                                <button class="btn btn-primary" (click)="orderByCreation()">Order by creation</button>
                                 <button class="btn"><i class="fas fa-ellipsis-v"></i></button>
                                 <button class="btn"><i class="fas fa-ellipsis-h"></i></button>
                             </div>

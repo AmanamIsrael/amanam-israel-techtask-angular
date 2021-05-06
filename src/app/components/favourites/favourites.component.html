@@ -1,5 +1,5 @@
 <main>
-    <div class="my-5">
+    <div class="my-5" *ngIf="allFavourites.size > 0">
         <p class="text-primary fs-3">Favourites</p>
         <div class="d-flex flex-wrap favs-container">
             <div class="card" *ngFor="let contact of allFavourites">
