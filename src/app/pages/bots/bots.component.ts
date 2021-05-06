@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-bots',
   templateUrl: './bots.component.html',
-  styleUrls: ['./bots.component.scss']
+  styleUrls: ['./bots.component.scss'],
 })
 export class BotsComponent implements OnInit {
+  constructor() {}
+  searchedContacts: any;
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  setSearched(searched) {
+    this.searchedContacts = searched;
   }
-
 }

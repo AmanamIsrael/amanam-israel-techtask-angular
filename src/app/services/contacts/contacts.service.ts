@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { contacts } from '../../data/contacts';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -8,6 +9,8 @@ export class ContactsService {
   constructor() {}
   favourites = new Set([]);
   allContacts = new Set([...contacts]);
+  private privateMessage = new BehaviorSubject<any>('idle');
+  currentMessage = this.privateMessage.asObservable();
 
   getAllContacts() {
     return this.allContacts;
@@ -34,7 +37,7 @@ export class ContactsService {
     contactsToArray = contactsToArray.sort(
       (a, b) => (a.name > b.name && 1) || -1
     );
-    console.log(contactsToArray);
+    this.allContacts = new Set(contactsToArray);
   }
   sortByCreation() {
     let contactsToArray = Array.from(this.allContacts);
@@ -53,14 +56,17 @@ export class ContactsService {
           1) ||
         -1
     );
-    console.log(contactsToArray);
+    this.allContacts = new Set(contactsToArray);
   }
   searchContacts(searchParam: string) {
     let contactsToArray = Array.from(this.allContacts);
     contactsToArray = contactsToArray.filter((contact) =>
       contact.shortName.includes(searchParam)
     );
-    // this.allContacts = new Set(contactsToArray);
-    console.log(contactsToArray);
+    let filteredContacts = new Set(contactsToArray);
+    return filteredContacts;
+  }
+  changeMessage(message: Object | string) {
+    this.privateMessage.next(message);
   }
 }

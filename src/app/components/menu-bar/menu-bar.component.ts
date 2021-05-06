@@ -1,5 +1,5 @@
 import { ContactsService } from './../../services/contacts/contacts.service';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-menu-bar',
@@ -10,16 +10,17 @@ export class MenuBarComponent implements OnInit {
   constructor(private contacts: ContactsService) {}
 
   ngOnInit(): void {}
-  @Output() renderAllContacts = new EventEmitter();
 
   orderByName() {
     this.contacts.sortByName();
+    this.contacts.changeMessage('orderByName');
   }
   orderByCreation() {
     this.contacts.sortByCreation();
+    this.contacts.changeMessage('orderByCreation');
   }
   searchContacts(searchParam: string) {
-    this.contacts.searchContacts(searchParam);
-    this.renderAllContacts.emit('renderContacts');
+    const searchedContacts = this.contacts.searchContacts(searchParam);
+    this.contacts.changeMessage({ name: 'search', contacts: searchedContacts });
   }
 }
