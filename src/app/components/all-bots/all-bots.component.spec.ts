@@ -1,3 +1,4 @@
+import { contacts } from './../../data/contacts';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AllBotsComponent } from './all-bots.component';
@@ -8,9 +9,8 @@ describe('AllBotsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AllBotsComponent ]
-    })
-    .compileComponents();
+      declarations: [AllBotsComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -21,5 +21,15 @@ describe('AllBotsComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  // basic unit tests
+
+  //correct contacts are set when loaded
+  it('correct contacts were set when loaded', () => {
+    component.getAllContacts();
+    const contactsData = new Set([...contacts]);
+    fixture.whenStable().then(() => {
+      expect(component.allContacts).toEqual(contactsData);
+    });
   });
 });
