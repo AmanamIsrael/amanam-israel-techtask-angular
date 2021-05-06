@@ -1,0 +1,18 @@
+<main>
+    <div class="my-5">
+        <div class="d-flex flex-wrap favs-container">
+            <div class="card" *ngFor="let contact of allContacts">
+                <div class="card-header">
+                    <i class="far fa-star" (click)="star(contact)"></i>
+                </div>
+                <div class="card-body d-flex justify-content-center">
+                    <div>
+                        <img [src]="contact.image" class="img-thumbnail avatar mb-3" alt="user avatar">
+                        <p class="text-center fw-bold">{{contact.name}}</p>
+                        <p class="text-secondary text-center">{{contact.plan}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

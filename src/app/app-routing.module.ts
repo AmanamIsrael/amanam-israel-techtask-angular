@@ -1,10 +1,15 @@
+import { BotDetailsComponent } from './pages/bot-details/bot-details.component';
+import { BotsComponent } from './pages/bots/bots.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', component: BotsComponent },
+  { path: 'details', component: BotDetailsComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

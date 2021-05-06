@@ -1,0 +1,19 @@
+<main>
+    <div class="my-5" *ngIf="allFavourites.size > 0">
+        <p class="text-primary fs-3">Favourites</p>
+        <div class="d-flex flex-wrap favs-container">
+            <div class="card" *ngFor="let contact of allFavourites">
+                <div class="card-header">
+                    <i class="fas fa-star orange" (click)="unStar(contact)"></i>
+                </div>
+                <div class="card-body d-flex justify-content-center">
+                    <div>
+                        <img [src]="contact.image" class="img-thumbnail avatar mb-3" alt="user avatar">
+                        <p class="text-center fw-bold">{{contact.name}}</p>
+                        <p class="text-secondary text-center">{{contact.plan}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
