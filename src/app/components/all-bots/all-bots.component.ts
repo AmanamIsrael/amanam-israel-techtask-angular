@@ -35,6 +35,7 @@ export class AllBotsComponent implements OnInit, OnDestroy {
   }
   getAllContacts() {
     this.allContacts = this.contacts.getAllContacts();
+    console.log(this.allContacts);
   }
 
   ngOnDestroy() {

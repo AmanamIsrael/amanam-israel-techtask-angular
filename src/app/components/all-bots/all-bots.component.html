@@ -1,7 +1,7 @@
 <main>
     <div class="my-5">
         <div class="d-flex flex-wrap favs-container">
-            <div class="card" *ngFor="let contact of allContacts">
+            <div class="card" routerLink="/details/{{contact.shortName}}" *ngFor="let contact of allContacts">
                 <div class="card-header">
                     <i class="far fa-star" (click)="star(contact)"></i>
                 </div>
